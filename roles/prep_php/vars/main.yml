@@ -7,6 +7,7 @@ php_db_extension:
 
 php_service_name:
   CentOS: php-fpm
+  AlmaLinux: php-fpm
   Fedora: php-fpm
   Amazon: php-fpm
   Ubuntu: php{{ php_version }}-fpm
@@ -14,6 +15,7 @@ php_service_name:
 
 php_fpm_conf_dir:
   CentOS: /etc
+  AlmaLinux: /etc
   Fedora: /etc
   Amazon: /etc
   Ubuntu: /etc/php/{{ php_version }}/fpm
@@ -21,6 +23,7 @@ php_fpm_conf_dir:
 
 php_cli_conf_dir:
   CentOS: /etc
+  AlmaLinux: /etc
   Fedora: /etc
   Amazon: /etc
   Ubuntu: /etc/php/{{ php_version }}/cli
@@ -28,6 +31,7 @@ php_cli_conf_dir:
 
 php_www_conf_dir:
   CentOS: /etc/php-fpm.d
+  AlmaLinux: /etc/php-fpm.d
   Fedora: /etc/php-fpm.d
   Amazon: /etc/php-fpm.d
   Ubuntu: /etc/php/{{ php_version }}/fpm/pool.d

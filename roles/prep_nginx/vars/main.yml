@@ -3,6 +3,7 @@
 
 php_socket:
   'CentOS': '/run/php-fpm/php{{ php_version }}-fpm.sock'
+  'AlmaLinux': '/run/php-fpm/php{{ php_version }}-fpm.sock'
   'Amazon': '/run/php-fpm/php{{ php_version }}-fpm.sock'
   'Fedora': '/run/php-fpm/php{{ php_version }}-fpm.sock'
   'Ubuntu': '/run/php/php{{ php_version }}-fpm.sock'

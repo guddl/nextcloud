@@ -3,6 +3,7 @@
  
 web_user:
   CentOS: 'nginx'
+  AlmaLinux: 'nginx'
   Fedora: 'nginx'
   Amazon: 'nginx'
   Ubuntu: 'www-data'
@@ -10,6 +11,7 @@ web_user:
 
 web_group:
   CentOS: 'nginx'
+  AlmaLinux: 'nginx'
   Fedora: 'nginx'
   Amazon: 'nginx'
   Ubuntu: 'www-data'
@@ -17,6 +19,7 @@ web_group:
 
 pg_user_id:
   CentOS: '70'
+  AlmaLinux: '70'
   Fedora: '70'
   Amazon: '70'
   Ubuntu: '70'
@@ -24,6 +27,7 @@ pg_user_id:
 
 pg_group_id:
   CentOS: '70'
+  AlmaLinux: '70'
   Fedora: '70'
   Amazon: '70'
   Ubuntu: '70'

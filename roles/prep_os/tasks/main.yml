@@ -65,7 +65,8 @@
 - name: disable transparent hugepages - copy service file
   copy:
     src: disable-transparent-huge-pages.service
-    dest: '{{ service_path[ansible_distribution] }}/disable-transparent-huge-pages.service'
+    #dest: '{{ service_path[ansible_distribution] }}/disable-transparent-huge-pages.service'
+    dest: '/etc/systemd/system/disable-transparent-huge-pages.service'
     owner: root
     group: root
     mode: 0644
@@ -84,7 +85,8 @@
     
 - name: change ImageMagick settings
   lineinfile:
-    path:   '{{ imagemagick_xml_path[ansible_distribution] }}'
+    #path:   '{{ imagemagick_xml_path[ansible_distribution] }}'
+    path:   '/etc/ImageMagick-6/policy.xml'
     line:   '  <policy domain="coder" rights="read|write" pattern="{{ item }}" />'
     regexp: '(.*)<policy domain="coder" rights="(.*)" pattern="{{ item }}" />(.*)'
     insertbefore: '</policymap>'

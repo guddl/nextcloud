@@ -3,6 +3,7 @@
 
 redis_conf_path:
   CentOS: '/etc'
+  AlmaLinux: '/etc/redis'
   Fedora: '/etc'
   Amazon: '/etc'
   Ubuntu: '/etc/redis'

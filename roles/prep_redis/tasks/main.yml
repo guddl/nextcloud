@@ -1,6 +1,10 @@
 ---
 # tasks file for prep_redis
 
+- name: "Ansible | Print a variable"
+  debug:
+    msg: "The operating system is {{ ansible_distribution }}"
+
 - name: include os specific tasks
   include_tasks: "{{ ansible_distribution }}.yml"
 
