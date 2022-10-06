@@ -1,28 +1,28 @@
 ---
 
-# CentOS related tasks
+# AlmaLinux related tasks
 
-#- name: add MariaDB repo
-#  yum_repository:
-#    name: mariadb
-#    description: Extra Packages for Enterprise Linux 7 - $basearch
-#    baseurl: http://yum.mariadb.org/{{ mariadb_version }}/centos{{ ansible_distribution_major_version|int }}-amd64
-#    gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-#    gpgcheck: yes
-#    enabled: 1
+- name: add MariaDB repo
+  yum_repository:
+    name: mariadb
+    description: Extra Packages for Enterprise Linux 9 - $basearch
+    baseurl: http://yum.mariadb.org/{{ mariadb_version }}/rhel{{ ansible_distribution_major_version|int }}-amd64
+    gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+    gpgcheck: yes
+    enabled: 1
 
 - name: install MariaDB
-  dnf: 
+  yum: 
     name:
-      - mariadb-server
-      - mariadb-client 
-#    enablerepo: mariadb 
+      - MariaDB-server
+      - MariaDB-client
+    enablerepo: mariadb 
     state: latest
   register: install_mariadb
 
 - name: install MySQLdb python package for database setup
-  dnf: 
-    name: python3-mysqlclient
+  yum: 
+    name: MySQL-python 
     state: present
   when: false
 

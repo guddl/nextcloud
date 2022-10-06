@@ -4,6 +4,7 @@
 mariadb_conf_dir:
   Amazon: /etc/my.cnf.d/my.cnf
   CentOS: /etc/my.cnf.d/my.cnf
+  AlmaLinux: /etc/my.cnf.d/my.cnf
   Fedora: /etc/my.cnf.d/my.cnf
   Ubuntu: /etc/mysql/mariadb.conf.d/90-nextcloud.cnf
   Debian: /etc/mysql/mariadb.conf.d/90-nextcloud.cnf
@@ -11,6 +12,7 @@ mariadb_conf_dir:
 mariadb_sock_dir:
   Amazon: /var/lib/mysql
   CentOS: /var/lib/mysql
+  AlmaLinux: /var/lib/mysql
   Fedora: /var/lib/mysql
   Ubuntu: /var/run/mysqld
   Debian: /var/run/mysqld
