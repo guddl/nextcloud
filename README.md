@@ -20,12 +20,12 @@ Most of the settings are recommentations from C. Rieger
 
 Visit his page for all details: <https://www.c-rieger.de/>
 
-Warning: Your existing nginx/php/mariadb setup will be over written. Up to now I tested this only on newly installed AWS EC2 Ubuntu, Debian, Fedora and CentOS machines. So backup of your existing configuration is a good advice.
+Warning: Your existing nginx/php/mariadb setup will be over written. Up to now I tested this only on newly installed AWS EC2 Ubuntu, Debian, Fedora, CentOS and Almalinux machines. So backup of your existing configuration is a good advice.
 
 Requirements
 ------------
 
-Ubuntu 16.04 und 18.04, CentOS 7, Debian 9 und 10, Amazon Linux 2, Fedora 30
+Ubuntu 16.04 und 18.04, CentOS 7, Debian 9 und 10, Amazon Linux 2, Fedora 30, Almalinux 9
 
 Not yet tested with other versions and flavours of Linux.
 
