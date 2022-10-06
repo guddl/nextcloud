@@ -76,6 +76,22 @@ prepare_centos() {
         ansible --version
 }
 
+prepare_almalinux() {
+        $SUDO yum install epel-release -y
+        $SUDO yum install git vim mc curl facter python3-libselinux python -y
+        $SUDO yum update -y
+
+        PYTHON_BIN=/usr/bin/python
+        install_pip
+
+        set +x
+        echo
+        echo "   AlmaLinux Sytem ready for nextcloud."
+        echo
+        ansible --version
+}
+
+
 prepare_fedora() {
         $SUDO dnf install git vim mc curl facter libselinux-python python python3 python3-dnf -y
         $SUDO dnf update -y
@@ -139,6 +155,9 @@ case $ID in
         ;;
         'centos')
                 prepare_centos
+        ;;
+        'almalinux')
+                prepare_almalinux
         ;;
         'fedora')
                 prepare_fedora
