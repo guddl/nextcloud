@@ -1,30 +1,19 @@
 ---
-- name: add php{{ php_version | replace(".","") }} repo
-  yum_repository:
-    name: remi-php{{ php_version | replace(".","") }}
-    description: Remi's PHP {{ php_version | replace(".","") }} RPM repository for Enterprise Linux {{ ansible_distribution_major_version|int }} - $basearch
-    mirrorlist: https://rpms.remirepo.net/enterprise/{{ ansible_distribution_major_version|int }}/php{{ php_version | replace(".","") }}/httpsmirror
-    gpgkey: http://rpms.remirepo.net/RPM-GPG-KEY-remi
-    gpgcheck: yes
-    enabled: 1
+- name: add remi php repos
+  get_url:
+    url: http://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version|int }}.rpm
+    dest: /tmp
 
-- name: add remi safe repo
-  yum_repository:
-    name: remi-safe
-    description: Safe Remi’s RPM repository for Enterprise Linux $releasever - $basearch 
-    mirrorlist: http://rpms.remirepo.net/enterprise/$releasever/safe/mirror
-    gpgkey: http://rpms.remirepo.net/RPM-GPG-KEY-remi
-    gpgcheck: yes
-    enabled: 1
+- name: add remi php repos
+  yum:
+    name: /tmp/remi-release-{{ ansible_distribution_major_version|int }}.rpm
+    state: present
 
-- name: add remi repo
-  yum_repository:
-    name: remi
-    description: Remi’s RPM repository for Enterprise Linux $releasever - $basearch
-    mirrorlist: http://rpms.remirepo.net/enterprise/$releasever/remi/mirror
-    gpgkey: http://rpms.remirepo.net/RPM-GPG-KEY-remi
-    gpgcheck: yes
-    enabled: 1
+- name: set php version 
+  shell: |
+    dnf update -y 
+    dnf module reset php 
+    dnf module install php:remi-{{ php_version }} -y
 
 - name: update os
   yum:
@@ -59,6 +48,7 @@
       - php-pear
       - php-pdo
       - php-bcmath
+      - php-sodium
       - php-pecl-apcu
       - php-pecl-zip
     state: latest
