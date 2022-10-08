@@ -4,4 +4,4 @@
   command: semodule -i {{ role_path }}/files/fail2ban-server.pp
 
 - name: restorecon 
-  command: restorecon -Rv /var/nc-data/nextcloud.log
+  command: restorecon -Rv {{ nc_datadir }}/nextcloud.log
